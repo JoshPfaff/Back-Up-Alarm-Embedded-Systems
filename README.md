@@ -155,7 +155,12 @@ if (TMR0IF) {
 }
 ```
 
-The project requirements describe this as generating a **50 Hz square wave**, giving a 20 ms measurement interval.
+### Timer0 Interrupt Verification — Oscilloscope
+
+![Oscilloscope Interrupt Reading](assets/Oscilloscope_Reading.jpg)
+
+The oscilloscope was used to verify that the Timer0 interrupt was operating correctly. The waveform shown is the signal generated on RC0, which is toggled inside the Timer0 interrupt service routine.
+
 
 ### Timer1 — Extended Time Base
 
