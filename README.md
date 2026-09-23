@@ -157,7 +157,7 @@ if (TMR0IF) {
 
 ### Timer0 Interrupt Verification — Oscilloscope
 
-![Oscilloscope Interrupt Reading](assets/Oscilloscope_Reading.jpg)
+![Oscilloscope Interrupt Reading](assets/Oscilloscope_Reading.jpeg)
 
 The oscilloscope was used to verify that the Timer0 interrupt was operating correctly. The waveform shown is the signal generated on RC0, which is toggled inside the Timer0 interrupt service routine.
 
