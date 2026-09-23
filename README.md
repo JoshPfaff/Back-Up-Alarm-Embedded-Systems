@@ -14,10 +14,6 @@ The system was programmed in **MPLAB 8 using PIC18 C code**, with inline assembl
 
 ## Project Demonstration
 
-### Uploaded demonstration video
-
-[▶️ Watch/open the demonstration video](assets/demo_video.MOV)
-
 The demonstration shows the completed system installed in a Jeep and operating as an automotive proximity/reverse alarm.
 
 The original ECE 376 project documentation also contains a YouTube demonstration:
@@ -32,12 +28,12 @@ The goal of the project was to create a system that measures the distance to the
 
 The project requirements specify the following behavior:
 
-| Distance | NeoPixels | Audible warning |
-|---|---|---|
-| Greater than 100 cm | Off | No beep |
-| 40–99.9 cm | Green | Slow beeping |
-| 20–39.9 cm | Yellow | Faster beeping |
-| Less than 20 cm | Red | Rapid/continuous warning |
+| Distance            | NeoPixels | Audible warning          |
+| ------------------- | --------- | ------------------------ |
+| Greater than 100 cm | Off       | No beep                  |
+| 40–99.9 cm          | Green     | Slow beeping             |
+| 20–39.9 cm          | Yellow    | Faster beeping           |
+| Less than 20 cm     | Red       | Rapid/continuous warning |
 
 The ECE 376 design documentation describes the system as measuring distance with an ultrasonic range sensor, displaying the distance on an LCD, changing the NeoPixel color according to distance, and increasing the beep rate as the object gets closer.
 
@@ -47,14 +43,14 @@ The ECE 376 design documentation describes the system as measuring distance with
 
 ### Main Components
 
-| Component | Purpose |
-|---|---|
-| **PIC18F4620** | Main microcontroller / embedded-system brain |
-| Ultrasonic range sensor | Measures distance to the nearest object |
-| Speaker | Produces the audible backup warning |
-| H-bridge | Drives the speaker |
-| 8 NeoPixels | Provides visual distance indication |
-| Character LCD | Displays measured distance |
+| Component                   | Purpose                                                                   |
+| --------------------------- | ------------------------------------------------------------------------- |
+| **PIC18F4620**              | Main microcontroller / embedded-system brain                              |
+| Ultrasonic range sensor     | Measures distance to the nearest object                                   |
+| Speaker                     | Produces the audible backup warning                                       |
+| H-bridge                    | Drives the speaker                                                        |
+| 8 NeoPixels                 | Provides visual distance indication                                       |
+| Character LCD               | Displays measured distance                                                |
 | PIC18F4620 evaluation board | Provides the microcontroller, LCD interface, I/O, and supporting hardware |
 
 The project documentation specifically identifies the PIC board as the brain of the embedded system and lists the range sensor, speaker/H-bridge, NeoPixels, and LCD as the major system components.
@@ -93,16 +89,16 @@ The evaluation board shown in the project contains the **PIC18F4620** and the LC
 
 The source code uses the following important PIC resources:
 
-| PIC resource | Function |
-|---|---|
-| **RA1** | Speaker / H-bridge control |
-| **RB0** | NeoPixel data output |
-| **RC0** | Ultrasonic sensor trigger/transmit output |
-| **RC2 / CCP1** | Ultrasonic echo capture input |
-| **PORTD** | LCD interface through `lcd_portd.c` |
-| **Timer0** | Generates the ultrasonic trigger timing |
-| **Timer1** | Extends the measurement time base |
-| **CCP1 Capture** | Measures the ultrasonic echo pulse width |
+| PIC resource     | Function                                  |
+| ---------------- | ----------------------------------------- |
+| **RA1**          | Speaker / H-bridge control                |
+| **RB0**          | NeoPixel data output                      |
+| **RC0**          | Ultrasonic sensor trigger/transmit output |
+| **RC2 / CCP1**   | Ultrasonic echo capture input             |
+| **PORTD**        | LCD interface through `lcd_portd.c`       |
+| **Timer0**       | Generates the ultrasonic trigger timing   |
+| **Timer1**       | Extends the measurement time base         |
+| **CCP1 Capture** | Measures the ultrasonic echo pulse width  |
 
 The code configures the ports with:
 
@@ -377,12 +373,12 @@ The project documentation reports that the measured distance was close to the ac
 ### Distance test results
 
 | Actual range (mm) | Measured range (mm) |
-|---:|---:|
-| 250 | 248 |
-| 200 | 202 |
-| 150 | 151 |
-| 100 | 98 |
-| 50 | 53 |
+| ----------------: | ------------------: |
+|               250 |                 248 |
+|               200 |                 202 |
+|               150 |                 151 |
+|               100 |                  98 |
+|                50 |                  53 |
 
 These measurements demonstrate that the ultrasonic distance measurement was close to the reference distances used during testing.
 
